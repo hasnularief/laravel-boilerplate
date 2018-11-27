@@ -1,0 +1,172 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+// Font Awesome
+@import "~font-awesome/css/font-awesome.css";
+//@import "~/node_modules/font-awesome/css/font-awesome.css";
+
+// Ionicons
+//@import "~ionicons/dist/css/ionicons";
+
+//Select2
+//@import "~/node_modules/select2/dist/css/select2.css";
+@import "~select2/dist/css/select2.css";
+
+// AdminLTE
+//@import "~/node_modules/admin-lte/dist/css/adminLTE.css";
+@import "~admin-lte/dist/css/adminLTE.css";
+
+// All Skin
+//@import "~/node_modules/admin-lte/dist/css/skins/_all-skins.css";
+@import "~admin-lte/dist/css/skins/_all-skins.css";
+
+// iCheck
+//@import "~/node_modules/icheck/skins/square/blue.css";
+@import "~icheck/skins/square/blue.css";
+
+//alertify.js
+//@import "~/node_modules/alertify.js/dist/css/alertify.css";
+@import "~alertify.js/dist/css/alertify.css";
+
+//datetime
+//@import '~/node_modules/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css';
+@import '~eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css';
+
+.alertify{z-index:1100}
+.alertify-logs{z-index:1100}
+
+.with-tools{
+	height: 55px !important;
+	span{
+		font-weight: bold;
+	}
+	.box-title{ margin-top: 5px; }
+	.box-title, .box-tools{
+		top: 9px !important;
+	}
+	.box-tools > *{
+		margin-left: 5px;
+	}
+}
+
+.true-mid{
+	display         : flex;
+	justify-content : center;
+	align-items     : center
+}
+
+.fa-red{ color: red; }
+.fa-green{ color: green; }
+
+.form-condensed{
+	.form-group{
+		margin-bottom: 0px !important;
+	}
+}
+
+.fixed-header tr.non-expand{
+    width        : 100% !important;
+    display      : inline-table !important;
+    table-layout : fixed !important;
+}
+
+table{
+    width: 100% !important;
+    display: -moz-groupbox !important;
+    position: relative !important;
+}
+
+.fixed-header tbody.non-expand{
+    width  : 100% !important;
+    overflow-y : hidden !important;
+    position   : absolute !important;
+}
+
+.fixed-header tbody.non-expand:hover{
+    overflow-y : scroll !important;
+}
+
+.fixed-header thead td{
+    font-weight: 700;
+}
+
+/* Scrollbar */
+.table>tbody::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.table>tbody::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+.table>tbody::-webkit-scrollbar-thumb {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+.table>tbody::-webkit-scrollbar-thumb:hover {
+  background: #666666;
+}
+.table>tbody::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+.table>tbody::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+.table>tbody::-webkit-scrollbar-track:hover {
+  background: #e1e1e1;
+}
+.table>tbody::-webkit-scrollbar-track:active {
+  background: #e1e1e1;
+}
+.table>tbody::-webkit-scrollbar-corner {
+  background: transparent;
+}
+.header-fixed > tbody {
+  height: 385px;
+}
+table.header-fixed{
+  margin-bottom: 0px;
+}
+
+.bigdropdown {
+    width: 300px !important;
+}
+
+/* Loading Overlay */
+.modal-overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+}
+.modal-overlay > .fa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+}
+/* End of Loading Overlay */
+
+
