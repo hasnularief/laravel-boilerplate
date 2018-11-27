@@ -16,8 +16,17 @@
 		<div class="box">
 			<div class="box-header with-border">
 				<div class="box-title"><pagination :pagination="model" :callback="readData"></pagination></div>
-				<div class="box-tools">
-					<button class="btn btn-success" @click="newData">New</button>
+				<div class="box-tools" style="width: 350px;">
+		            <div class="pull-right">
+						<button class="btn btn-success pull-right" @click="newData">New</button>
+					</div>
+		            <div class="pull-right">
+		             	<div class="input-group" style="width: 200px;">
+		             		<span class="input-group-addon"><i class="fa fa-search"></i></span> 
+		             		<input maxlength="30" type="text" placeholder="Search ..." class="form-control" style="width: 200px;" v-model="search" @keyup.enter="readData()">
+		             	</div>
+		             </div>
+		             
 				</div>
 			</div>
 			<loading v-if="loading"></loading>
@@ -144,7 +153,7 @@ export default {
 		readData() {
 			const vm = this
 			vm.loading = true
-			const param = {req: 'table', name: vm.search, per_page: vm.model.per_page, page: vm.model.current_page}
+			const param = {req: 'table', search: vm.search, per_page: vm.model.per_page, page: vm.model.current_page}
 			axios.get(vm.readRoute, {params: param}).then(function (response) {
 				Vue.set(vm.$data, 'model', response.data.model)
 				vm.loading = false

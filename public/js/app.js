@@ -2334,6 +2334,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -2368,7 +2377,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		readData: function readData() {
 			var vm = this;
 			vm.loading = true;
-			var param = { req: 'table', name: vm.search, per_page: vm.model.per_page, page: vm.model.current_page };
+			var param = { req: 'table', search: vm.search, per_page: vm.model.per_page, page: vm.model.current_page };
 			axios.get(vm.readRoute, { params: param }).then(function (response) {
 				Vue.set(vm.$data, 'model', response.data.model);
 				vm.loading = false;
@@ -47320,16 +47329,77 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "box-tools" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-success",
-                      on: { click: _vm.newData }
-                    },
-                    [_vm._v("New")]
-                  )
-                ])
+                _c(
+                  "div",
+                  { staticClass: "box-tools", staticStyle: { width: "350px" } },
+                  [
+                    _c("div", { staticClass: "pull-right" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-success pull-right",
+                          on: { click: _vm.newData }
+                        },
+                        [_vm._v("New")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "pull-right" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "input-group",
+                          staticStyle: { width: "200px" }
+                        },
+                        [
+                          _vm._m(0),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.search,
+                                expression: "search"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            staticStyle: { width: "200px" },
+                            attrs: {
+                              maxlength: "30",
+                              type: "text",
+                              placeholder: "Search ..."
+                            },
+                            domProps: { value: _vm.search },
+                            on: {
+                              keyup: function($event) {
+                                if (
+                                  !("button" in $event) &&
+                                  _vm._k(
+                                    $event.keyCode,
+                                    "enter",
+                                    13,
+                                    $event.key,
+                                    "Enter"
+                                  )
+                                ) {
+                                  return null
+                                }
+                                _vm.readData()
+                              },
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.search = $event.target.value
+                              }
+                            }
+                          })
+                        ]
+                      )
+                    ])
+                  ]
+                )
               ]),
               _vm._v(" "),
               _vm.loading ? _c("loading") : _vm._e(),
@@ -47342,7 +47412,7 @@ var render = function() {
                     attrs: { width: "100%" }
                   },
                   [
-                    _vm._m(0),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c(
                       "tbody",
@@ -47751,6 +47821,14 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "fa fa-search" })
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
