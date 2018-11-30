@@ -62,10 +62,10 @@ class SidebarMenuComposer
       $menu = $this->getRawMenu();
 
     foreach($menu as $m) {
-      if(is_object($m) && !isset($m->children)) {
+      if(is_object($m) && !isset($m->children) && $m->visibility) {
         $this->composed .= '<li ' . (isset($m->active) ? 'class="active"' : '') . '><a href="' . route($m->route) . '"><i class="' . $m->icon . '"></i><span> ' . $m->name . '</span></a></li>';
       }
-      elseif(isset($m->children) && count($m->children) > 0) {
+      elseif(isset($m->children) && count($m->children) > 0 && $m->visibility) {
         $this->composed .=  '<li class="treeview ' . (isset($m->active) ? 'active menu-open' : '') . '">'.
                 '<a href="#"><i class="' . $m->icon . '"></i> <span>' . $m->name . '</span>'.
                   '<span class="pull-right-container">'.
@@ -81,12 +81,13 @@ class SidebarMenuComposer
 
   private function getRawMenu() {
     return [
-          (object)[ 'name' => 'Dashboard', 'icon' => 'fa fa-dashboard', 'route' => 'home' ],
+          (object)[ 'name' => 'Dashboard', 'icon' => 'fa fa-dashboard', 'route' => 'home' , 'visibility' => false],
           (object)[
             'name' => 'Administrator', 'icon' => 'fa fa-folder',
+            'visibility' => true,
             'children' => [
-              (object)[ 'name' => 'Users', 'icon' => 'fa fa-users', 'route' => 'users' ],
-              (object)[ 'name' => 'Roles', 'icon' => 'fa fa-circle-o', 'route' => 'roles' ],
+              (object)[ 'name' => 'Users', 'icon' => 'fa fa-users', 'route' => 'users' , 'visibility' => true],
+              (object)[ 'name' => 'Roles', 'icon' => 'fa fa-circle-o', 'route' => 'roles' , 'visibility' => false],
             ]
           ]
          ];
