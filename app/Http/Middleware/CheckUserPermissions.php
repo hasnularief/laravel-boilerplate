@@ -7,7 +7,7 @@ use Closure;
 class CheckUserPermissions
 {
     protected $except_urls = [
-        
+        'home'
     ];
 
     /**
@@ -28,5 +28,11 @@ class CheckUserPermissions
         }
         
         return $next($request);
+    }
+
+    public static function getExceptUrls()
+    {
+        $self = new CheckUserPermissions();
+        return $self->except_urls;
     }
 }
