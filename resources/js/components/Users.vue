@@ -79,10 +79,17 @@
               			<span v-if="validation.name" class="help-block">{{validation.name[0]}}</span>
             		</div>
           		</div>
+          		<div class="form-group" :class='{"has-error": validation.username}'>
+            		<label class="control-label col-sm-3">Username *</label>
+            		<div class="col-sm-8">
+              			<input @keyup.enter="writeData()" type="text" class="form-control" placeholder="Enter username" v-model="form.username">
+              			<span v-if="validation.username" class="help-block">{{validation.username[0]}}</span>
+            		</div>
+          		</div>
           		<div class="form-group" :class='{"has-error": validation.email}'>
             		<label class="control-label col-sm-3">Email *</label>
             		<div class="col-sm-8">
-              			<input :disabled="bridging" @keyup.enter="writeData()" type="text" class="form-control" placeholder="Enter email" v-model="form.email">
+              			<input @keyup.enter="writeData()" type="text" class="form-control" placeholder="Enter email" v-model="form.email">
               			<span v-if="validation.email" class="help-block">{{validation.email[0]}}</span>
             		</div>
           		</div>
@@ -122,7 +129,7 @@
 <script>
 export default {
 
-	props:['roles', 'bridging'],
+	props:['roles'],
 
 	data() {
 		return {
@@ -132,6 +139,7 @@ export default {
 			form:{
 				id: null,
 				name: null,
+				username: null,
 				email: null,
 				password: null,
 				confirm_password: null,
@@ -214,9 +222,7 @@ export default {
 			})
 		},
 
-		newData() {
-			if(this.bridging)
-				return alertify.error("Tidak bisa membuat user saat bridging. Silahkan buat user di Aissha")
+		newData() {			
 
 			$('#modal').modal('show')
 			Object.assign(this.$data.form, this.$options.data().form)

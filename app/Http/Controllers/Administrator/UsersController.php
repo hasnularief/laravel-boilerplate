@@ -23,7 +23,7 @@ class UsersController extends AuthController
                             ->leftJoin('role_user', 'role_user.user_id','=','users.id')
                             ->leftJoin('roles','roles.id','=','role_user.role_id')
                             ->where('users.name','like',"%$request->search%")
-                            ->orWhere('email','like',"%$request->search%")
+                            ->orWhere('username','like',"%$request->search%")
                             ->orWhere('roles.name','like',"%$request->search%")
                             ->select(['users.*','roles.name as role_name'])
                             ->paginate($request->per_page);
@@ -49,6 +49,7 @@ class UsersController extends AuthController
         else if($request->req == 'write') {
              $this->validate($request,[
                 'name'             => 'required',
+                'username'         => 'required|unique:users,username,' . $request->id,
                 'email'            => 'required|email|unique:users,email,' . $request->id,
                 'password'         => 'required_without:id',
                 'confirm_password' => 'same:password'
@@ -60,17 +61,20 @@ class UsersController extends AuthController
                 $user = new User();
 
             $user->name = $request->name;
+            $user->username = $request->username;
             $user->email = $request->email;
             
             if($request->password)
                 $user->password = bcrypt($request->password);        
+
+            $user->save();
 
             $user->detachRoles();
 
             if($request->role_id)
                 $user->attachRole(Role::find($request->role_id));
 
-            $user->save();
+            
             return response()->json($user);
         }
 
