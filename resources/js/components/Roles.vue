@@ -71,11 +71,14 @@
 		            <div class="box-body" style="margin-top:0px;">
 		              <h4 v-if="detail" style="font-weight: bold; margin-top:0px;">Permission for: {{detail.name}}</h4>
 		              <table class="table table-bordered">
+		              	<thead>
 		                <tr>
 		                  <th style="width: 50px;">Act</th>
 		                  <th style="width: 50px;">#</th>
 		                  <th>Permission</th>
 		                </tr>
+		            	</thead>
+		            	<tbody>
 		                <tr v-for="m in modelDetail">
 		                  <td>
 		                    <div class="btn-group">
@@ -85,6 +88,7 @@
 		                  <td>{{m.id}}</td>
 		                  <td>{{m.name}}</td>
 		                </tr>
+		            	</tbody>
 		              </table>
 		            </div> 
 				</div>

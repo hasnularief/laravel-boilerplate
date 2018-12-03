@@ -68,11 +68,11 @@
               <li class="header">{{ $total_notification > 0 ? "Anda memiliki {$total_notification} notifikasi" : "Tidak ada notifikasi baru"}}</li>
               <li>
                 <ul class="menu">
-                  <li>
+                  {{--<li>
                     <a href="#">
                       <i class="fa fa-envelope-o text-aqua"></i> pending.
                     </a>
-                  </li>
+                  </li> --}}
                 </ul>
               </li>
             </ul>
@@ -129,20 +129,20 @@
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
+              {{--<li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
                     <a href="#">Tes</a>
                   </div>
-                  {{-- <div class="col-xs-4 text-center">
+                   <div class="col-xs-4 text-center">
                     <a href="#">Sales</a>
                   </div>
                   <div class="col-xs-4 text-center">
                     <a href="#">Friends</a>
-                  </div> --}}
+                  </div> 
                 </div>
                 <!-- /.row -->
-              </li>
+              </li>--}}
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">

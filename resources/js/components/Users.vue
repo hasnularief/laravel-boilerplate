@@ -178,6 +178,7 @@ export default {
 				setTimeout(function(){
 					vm.form = {
 						id: model.id,
+						username: model.username,
 						name: model.name,
 						email: model.email,
 						role_id: model.role_id,
