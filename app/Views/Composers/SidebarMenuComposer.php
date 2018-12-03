@@ -65,7 +65,7 @@ class SidebarMenuComposer
 			if(is_object($m) && !isset($m->children) && $this->allow($m)) {
 				$this->composed .= '<li ' . (isset($m->active) ? 'class="active"' : '') . '><a href="' . url($m->url) . '"><i class="' . $m->icon . '"></i><span> ' . $m->name . '</span></a></li>';
 			}
-			elseif(isset($m->children) && count($m->children) > 0 && $m->visibility) {
+			elseif(isset($m->children) && count($m->children) > 0 && $m->visibility && $this->hasAllowedChild($m)) {
 				$this->composed .=  '<li class="treeview ' . (isset($m->active) ? 'active menu-open' : '') . '">'.
 				'<a href="#"><i class="' . $m->icon . '"></i> <span>' . $m->name . '</span>'.
 				'<span class="pull-right-container">'.
@@ -89,8 +89,25 @@ class SidebarMenuComposer
 					(object)[ 'name' => 'Users', 'icon' => 'fa fa-users', 'url' => 'users'],
 					(object)[ 'name' => 'Roles', 'icon' => 'fa fa-circle-o', 'url' => 'roles'],
 				]
+			],
+			(object)[
+				'name' => 'Experimental', 'icon' => 'fa fa-folder',
+				'visibility' => true,
+				'children' => [
+					(object)[ 'name' => 'Tests', 'icon' => 'fa fa-users', 'url' => 'tests'],
+					(object)[ 'name' => 'Checks', 'icon' => 'fa fa-circle-o', 'url' => 'checks'],
+				]
 			]
 		];
+	}
+
+	private function hasAllowedChild($m)
+	{
+		foreach($m->children as $child){
+			if($this->allow($child))
+				return true;
+		}
+		return false;
 	}
 
 	private function allow($m)
