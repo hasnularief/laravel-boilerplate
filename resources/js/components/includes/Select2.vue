@@ -111,7 +111,10 @@
       },
       options: function (options) {
         // update options
-        $(this.$el).select2({ data: options })
+        const vm = this
+        $(this.$el).empty().trigger('change')
+        $(this.$el).select2({ data: options }).val([]).trigger('change')
+        vm.$emit('change'); 
       }
     },
     destroyed: function () {
