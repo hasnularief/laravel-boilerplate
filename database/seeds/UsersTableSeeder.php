@@ -15,6 +15,7 @@ class UsersTableSeeder extends Seeder
 
         $user = App\User::firstOrNew(['email' => 'arief.hasnul@gmail.com']);
     	$user->name = "Hasnul Arief Fikri";
+        $user->username = "hasnul";
     	$user->password = bcrypt("123456");
     	$user->save();
         $user->detachRoles();
@@ -23,6 +24,7 @@ class UsersTableSeeder extends Seeder
         
         $user = App\User::firstOrNew(['email' => 'feisal.rz@gmail.com']);
         $user->name = "Feisal Reza";
+        $user->username = "axelragez";
         $user->password = bcrypt("123456");
         $user->save();
         $user->detachRoles();
