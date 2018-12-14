@@ -10,6 +10,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import './filters.js';
+import './helpers.js';
 
 import datePicker from 'vue-bootstrap-datetimepicker';
 Vue.use(datePicker);
