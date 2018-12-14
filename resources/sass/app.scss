@@ -19,9 +19,8 @@
 // Ionicons
 //@import "~ionicons/dist/css/ionicons";
 
-//Select2
-//@import "~/node_modules/select2/dist/css/select2.css";
-@import "~select2/dist/css/select2.css";
+//selectize
+@import "~selectize/dist/css/selectize.bootstrap3";
 
 // AdminLTE
 //@import "~/node_modules/admin-lte/dist/css/adminLTE.css";
@@ -169,4 +168,6 @@ table.header-fixed{
 }
 /* End of Loading Overlay */
 
-
+.selectize-control > *{
+  border-radius: 0px !important;
+}

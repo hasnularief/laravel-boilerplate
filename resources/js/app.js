@@ -38,6 +38,9 @@ VueCookie.getOr =  (function (name, defaultValue, parseJson = false) { return Co
 
 Vue.use(VueCookie);
 
+import selectize from "vue2-selectize"
+Vue.component('selectize', selectize);
+
 Vue.component('content-header', require('./components/includes/ContentHeader.vue'));
 Vue.component('loading', require('./components/includes/LoadingBox.vue'));
 Vue.component('modal', require('./components/includes/Modal.vue'));

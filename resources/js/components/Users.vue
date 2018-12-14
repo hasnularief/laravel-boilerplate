@@ -110,10 +110,9 @@
           		<div class="form-group" :class='{"has-error": validation.role}'>
             		<label class="control-label col-sm-3">Role</label>
             		<div class="col-sm-8">
-            			<select2 class="form-control" v-model="form.role_id">
-            				<option :value="null">-- Select role --</option>
+            			<selectize v-model="form.role_id" class="form-control">
             				<option v-for="r in roles" :value="r.id">{{r.name}}</option>
-            			</select2>
+            			</selectize>
               			<span v-if="validation.role" class="help-block">{{validation.role[0]}}</span>
             		</div>
           		</div>

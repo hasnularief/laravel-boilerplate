@@ -72,9 +72,11 @@ window.alertify = require('alertify.js');
 window.alertify.logPosition("bottom right");
 window.alertify.theme('bootstrap');
 
-// Select2
-require('select2/dist/js/select2.full.min');
-$.fn.modal.Constructor.prototype.enforceFocus = function () {};
+// Selectize
+require('selectize');
+
+// accountingjs
+window.accounting = require("accounting");
 
 window.moment = require('moment');
 
@@ -88,3 +90,11 @@ window.moment.updateLocale('en', {
         sameElse : 'L'
     }
 });
+
+function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+};
+
+window._isMobile = isMobileDevice();
+
+
